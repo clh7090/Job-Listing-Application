@@ -2,16 +2,22 @@ pipeline {
   agent any
   tools {
     maven '3.9.4'
+    nodejs '20.6.1;
   }
   stages {
     stage('Build Maven') {
       steps {
         bat """
-            dir
-            git log
             cd springboot-backend
-            dir
             mvn clean install -DskipTests
+        """.stripIndent().trim()
+      }
+    }
+    stage('Build Maven') {
+      steps {
+        bat """
+            cd react-frontend
+            npm i
         """.stripIndent().trim()
       }
     }
@@ -19,8 +25,9 @@ pipeline {
       steps{
         bat """
             cd springboot-backend
-            dir
             docker build -t clh7090/job-listings-springboot-backend .
+            cd ../react-frontend
+            docker build -t clh7090/job-listings-react-frontend .
         """.stripIndent().trim()
       }
     }
