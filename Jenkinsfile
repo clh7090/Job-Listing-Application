@@ -2,7 +2,7 @@ pipeline {
   agent any
   tools {
     maven '3.9.4'
-    nodejs '20.6.1;
+    nodejs '20.6.1'
   }
   stages {
     stage('Build Maven') {
