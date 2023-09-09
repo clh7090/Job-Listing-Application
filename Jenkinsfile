@@ -13,7 +13,7 @@ pipeline {
         """.stripIndent().trim()
       }
     }
-    stage('Build Maven') {
+    stage('Instal Node Dependencies') {
       steps {
         bat """
             cd react-frontend
