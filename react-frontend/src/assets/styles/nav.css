@@ -1,0 +1,39 @@
+nav {
+  position: relative;
+  display: flex;
+  padding: 30px;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  border-bottom: 1px solid white;
+}
+
+nav > span {
+  font-weight: 600;
+}
+
+.nav-login {
+  color: white;
+  padding: 8px 16px 8px 16px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  transition: color 0.2s;
+}
+
+.nav-home {
+  color: white;
+  padding: 8px 16px 8px 16px;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.nav-login:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+
+.nav-home:hover {
+  cursor: pointer;
+}
