@@ -17,7 +17,6 @@ pipeline {
       steps {
         bat """
             cd react-frontend
-            npm i
         """.stripIndent().trim()
       }
     }
