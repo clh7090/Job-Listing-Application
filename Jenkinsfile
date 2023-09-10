@@ -34,7 +34,7 @@ pipeline {
       steps{
         withCredentials([string(credentialsId: 'dockerhubpwd', variable: 'dockerhubpwd')]) {
           bat """
-            docker login -u clh7090 -p {dockerhubpwd}
+            docker login -u clh7090 -p ${dockerhubpwd}
             docker push clh7090/job-listings-springboot-backend
             docker push clh7090/job-listings-react-frontend
           """.stripIndent().trim()
