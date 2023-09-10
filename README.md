@@ -21,7 +21,7 @@ This program uses:
 
 - In order to run this application with you need to install [Docker](https://docs.docker.com/engine/install/).
 
-- If running locally for development you need to install [Node](https://nodejs.org/en/download),[Postgres](https://www.postgresql.org/download/), [JDK 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html), and [Maven](https://maven.apache.org/download.cgi?.).
+- If running locally for development you need to install [Node](https://nodejs.org/en/download), [Postgres](https://www.postgresql.org/download/), [JDK 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html), and [Maven](https://maven.apache.org/download.cgi?.).
 
 ---
 
@@ -55,9 +55,9 @@ $ docker compose up
 - You can view database _testing_ credentials in the application.properties file to connect to pgadmin4.
 
 1. Start up the postgres server.
-2. create a database called "jobs".
+2. Create a database called "jobs".
 3. Begin the springboot server on http://localhost:8080.
-4. start the react server on http://localhost:3000 after installing dependencies using by navigating to the react-frontend folder and using:
+4. Start the react server on http://localhost:3000 after installing dependencies using by navigating to the react-frontend folder and using:
 
 ```
 $ npm i
