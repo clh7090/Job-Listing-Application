@@ -1,0 +1,51 @@
+version: "3"
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:15.4-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+      POSTGRES_DB: jobs
+      PGDATA: /var/lib/postgresql/data/
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    restart: always
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4:latest
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-pgadmin4@pgadmin.org}
+      PGADMIN_DEFAULT_PASSWORD: root
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    restart: always
+
+  springboot-backend:
+    image: clh7090/job-listings-springboot-backend
+    container_name: springboot-backend
+    ports:
+      - "8080:8080"
+    links:
+      - postgres
+      - pgadmin
+    depends_on:
+      - postgres
+
+  react-frontend:
+    container_name: react-frontend
+    image: clh7090/job-listings-react-frontend
+    ports:
+      - "3000:3000"
+    tty: true
+    depends_on:
+      - springboot-backend
+
+volumes:
+  postgres-data:

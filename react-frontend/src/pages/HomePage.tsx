@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import ListingsComponent from "../components/ListingComponent";
 import "../assets/styles/home.css";
 import { useUserContext } from "../contexts/UserContext";
-import { listingModel, listingModelWithId } from "../models/listingModel";
+import { listingModelWithId } from "../models/listingModel";
 import { getAllListings } from "../services/listingService";
 import { Link } from "react-router-dom";
 import { useAlertContext } from "../contexts/AlertContext";
@@ -17,7 +17,7 @@ const HomePage = () => {
       setListings(await getAllListings(userContext.username));
     };
     getListings();
-  }, []);
+  });
 
   return (
     <div className="home">
